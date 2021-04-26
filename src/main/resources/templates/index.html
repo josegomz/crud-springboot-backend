@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Usuario CRUD</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>Lista de usuarios</h1>
+		<br>
+		<a th:href="@{/showNewUsuarioForm}" class="btn btn-success">
+			<i class="fas fa-plus"></i> Agregar
+		</a>
+		<br> <br>
+		<table class="table table-stripped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th>Imagen</th>
+					<th>Usuario</th>
+					<th>email</th>
+					<th>telefono</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usuario : ${ListaUsuarios}">
+				
+					<td><img th:src="@{'/img/usuario/'+${usuario.imagen}}" style="width:100px;"></td>
+					<td th:text="${usuario.username}"></td>
+					<td><iframe th:src="@{'/pdf/'+${usuario.pdf}}"></iframe> </td>
+					<td th:text="${usuario.telefono}"></td>
+					<td><button class="btn btn-warning"><i class="fas fa-edit"></i> Editar</button></td>
+					<td><button class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
