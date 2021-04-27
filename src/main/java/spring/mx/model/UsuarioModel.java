@@ -7,7 +7,7 @@ import spring.mx.entity.Usuario;
 
 public interface UsuarioModel extends Repository<Usuario, Long>{
 	List<Usuario> findAll();
-	List<Usuario> findById(Long id);
+	Usuario findById(Long id);
 	Usuario save(Usuario usuario);
 	void delete(Usuario usuario);
 }

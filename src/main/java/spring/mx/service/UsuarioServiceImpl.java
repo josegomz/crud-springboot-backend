@@ -29,15 +29,13 @@ public class UsuarioServiceImpl implements UsuarioService{
 	}
 
 	@Override
-	public Optional<Usuario> listarId(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Usuario listarId(Long id) {
+		return um.findById(id);
 	}
 
 	@Override
 	public Usuario edit(Usuario usuario) {
-		// TODO Auto-generated method stub
-		return null;
+		return um.save(usuario);
 	}
 
 }
