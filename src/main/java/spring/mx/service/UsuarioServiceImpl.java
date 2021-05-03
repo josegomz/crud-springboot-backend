@@ -1,7 +1,6 @@
 package spring.mx.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,10 +22,6 @@ public class UsuarioServiceImpl implements UsuarioService{
 	public Usuario create(Usuario usuario) {
 		return um.save(usuario);
 	}
-	
-	public void  delete(Usuario usuario) {
-		um.delete(usuario);
-	}
 
 	@Override
 	public Usuario listarId(Long id) {
@@ -36,6 +31,12 @@ public class UsuarioServiceImpl implements UsuarioService{
 	@Override
 	public Usuario edit(Usuario usuario) {
 		return um.save(usuario);
+	}
+
+	@Override
+	public Usuario delete(Long id) {
+		Usuario u = um.findById(id);
+		return um.delete(u);
 	}
 
 }

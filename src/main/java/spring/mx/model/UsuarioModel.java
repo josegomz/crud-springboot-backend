@@ -9,5 +9,5 @@ public interface UsuarioModel extends Repository<Usuario, Long>{
 	List<Usuario> findAll();
 	Usuario findById(Long id);
 	Usuario save(Usuario usuario);
-	void delete(Usuario usuario);
+	Usuario delete(Usuario usuario);
 }
